@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
+  pages: read
   id-token: write
 concurrency:
   group: pages
@@ -17,14 +17,12 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: \${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Enable and configure GitHub Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web
