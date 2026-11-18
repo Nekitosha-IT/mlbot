@@ -8,4 +8,4 @@ database_name = "nekitosha-mlbot"
 database_id = "REPLACE_WITH_DATABASE_ID"
 
 [vars]
-ALLOWED_ORIGINS = "https://nekitosha-it.github.io"
+ALLOWED_ORIGINS = "https://nekitosha-it.github.io,https://nekitosha-autofarm.app,https://www.nekitosha-autofarm.app"
