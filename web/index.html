@@ -5,6 +5,21 @@
 <title>Nekitosha AutoFarm</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
+<section id="loginGate" class="login-gate hidden">
+  <div class="login-brand"><div class="eyebrow">MY LANDS · STEAM EDITION</div><h1>NEKITOSHA<br><span>AUTOFARM</span></h1><p class="muted">Личный кабинет правил, армий и Windows Agent.</p></div>
+  <div class="login-card">
+    <div class="eyebrow">MULTI-USER ACCOUNT</div><h2 id="authTitle">Вход в кабинет</h2>
+    <div class="auth-tabs"><button type="button" class="active" data-auth-mode="login">Войти</button><button type="button" data-auth-mode="register">Регистрация</button></div>
+    <form id="authForm">
+      <label>Email<input id="authEmail" type="email" required autocomplete="email"></label>
+      <label id="displayNameLabel" class="hidden">Имя профиля<input id="authDisplayName" maxlength="50" autocomplete="nickname"></label>
+      <label>Пароль<input id="authPassword" type="password" minlength="10" required autocomplete="current-password"></label>
+      <button class="primary full" id="authSubmit">Войти</button>
+    </form>
+    <div id="authMessage" class="notice"></div>
+    <p class="small">Используй отдельный пароль для AutoFarm. Не вводи пароль Steam, cookies или игровые токены.</p>
+  </div>
+</section>
 <div class="shell">
 <aside class="sidebar"><div class="brand">N / NEKITOSHA</div><div class="eyebrow">MY LANDS · STEAM</div>
 <nav class="nav">
