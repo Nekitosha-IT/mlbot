@@ -46,7 +46,7 @@ try {
 
         if (-not $databaseId) {
             Write-Host "Creating D1 database..."
-            $createText = (& wrangler d1 create $DbName --binding DB 2>&1 | Out-String)
+            $createText = (& wrangler d1 create $DbName --binding DB --update-config 2>&1 | Out-String)
             if ($LASTEXITCODE -ne 0) {
                 throw "D1 database creation failed. Check Cloudflare for an existing database named $DbName. Details: $createText"
             }
@@ -63,7 +63,8 @@ try {
         }
         if (-not $databaseId) { throw "Could not determine D1 database ID. Run wrangler d1 list and copy the UUID into worker/wrangler.toml." }
 
-        $config = [regex]::Replace($config, 'database_id\s*=\s*"[^"]+"', ('database_id = "' + $databaseId + '"'), 1)
+        $rx = New-Object System.Text.RegularExpressions.Regex('database_id\s*=\s*"[^"]+"')
+        $config = $rx.Replace($config, ('database_id = "' + $databaseId + '"'), 1)
         [IO.File]::WriteAllText($configPath, $config, (New-Object System.Text.UTF8Encoding($false)))
 
         Write-Host "Applying database schema..."
