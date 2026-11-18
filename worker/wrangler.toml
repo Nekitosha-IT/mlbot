@@ -1,0 +1,11 @@
+name = "nekitosha-mlbot-api"
+main = "src/index.js"
+compatibility_date = "2026-11-18"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nekitosha-mlbot"
+database_id = "REPLACE_WITH_DATABASE_ID"
+
+[vars]
+ALLOWED_ORIGINS = "https://nekitosha-it.github.io"

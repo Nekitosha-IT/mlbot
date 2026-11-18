@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b111b">
+<title>Nekitosha AutoFarm</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar"><div class="brand">N / NEKITOSHA</div><div class="eyebrow">MY LANDS · STEAM</div>
+<nav class="nav">
+<button class="active" data-page="overview">Обзор</button><button data-page="rules">Правила фарма</button><button data-page="armies">Армии</button><button data-page="agents">Windows Agent</button><button data-page="activity">Журнал</button><button data-page="settings">Настройки</button>
+</nav><div class="sidefoot"><span id="identity">Демо-профиль</span><button id="logout" class="secondary hidden">Выйти</button></div></aside>
+<main class="main">
+<header class="top"><div><div class="eyebrow">NEKITOSHA AUTOFARM / MULTI-USER</div><h1 id="pageTitle">Обзор</h1></div><div class="actions"><span class="status" id="connection">ДЕМО · локально</span><button id="refresh" class="secondary">↻</button></div></header>
+<div id="globalNotice" class="notice"></div>
+<section id="page-overview" class="page active"><div class="hero"><div class="eyebrow">STEAM EDITION</div><h2>Твой фарм. Твои правила.</h2><p class="muted">Настраивай собственные правила, армии и Windows Agent. В демо-режиме данные сохраняются в этом браузере. Для общих аккаунтов подключи Cloudflare API из README.</p><div class="warning">Важно: эта сборка — рабочий кабинет настроек и управления агентами. Живой парсер карты и автоматическая отправка игровых миссий пока не подключены.</div></div>
+<div class="grid"><div class="stat"><span>Правила</span><strong id="statRules">0</strong><small>всего</small></div><div class="stat"><span>Активные правила</span><strong id="statActive">0</strong><small>включено</small></div><div class="stat"><span>Шаблоны армий</span><strong id="statArmies">0</strong><small>сохранено</small></div></div>
+<div class="panel"><div class="toolbar"><div><h3>Быстрый старт</h3><p class="muted">Создай правило для руин 5–7 уровня и сохрани свой состав войск.</p></div><button class="primary" data-go="rules">＋ Создать правило</button></div></div>
+<div class="panel"><h3>Публикация для всех пользователей</h3><p class="muted">Сайт публикуется бесплатно на GitHub Pages. Для регистрации с разных устройств подключи бесплатный Cloudflare Worker + D1: пошаговая инструкция находится в README репозитория.</p><a href="https://github.com/Nekitosha-IT/mlbot" target="_blank" rel="noreferrer">Открыть исходный проект на GitHub ↗</a></div>
+</section>
+<section id="page-rules" class="page"><div class="toolbar"><div><h2>Правила фарма</h2><p class="muted">Уровни цели, город, герой, тип атаки и свой состав отряда.</p></div><button class="primary" id="newRule">＋ Новое правило</button></div><div class="panel" id="rulesList"></div></section>
+<section id="page-armies" class="page"><div class="toolbar"><div><h2>Шаблоны армий</h2><p class="muted">Восемь числовых слотов для каждого шаблона.</p></div><button class="primary" id="newArmy">＋ Новый шаблон</button></div><div class="panel" id="armiesList"></div></section>
+<section id="page-agents" class="page"><h2>Windows Agent</h2><div class="panel"><h3>Привязка устройства</h3><p class="muted">В серверном режиме создай одноразовый код и введи его в Windows Agent. Код действует 10 минут.</p><button id="pairButton" class="primary">Создать код подключения</button><div id="pairCode" class="code hidden"></div><p class="small">Скачать Windows Agent: <a href="https://github.com/Nekitosha-IT/mlbot/tree/main/agent" target="_blank" rel="noreferrer">папка agent на GitHub ↗</a></p></div><div class="panel"><h3>Подключённые устройства</h3><div id="agentsList" class="empty">Пока нет подключённых устройств.</div></div></section>
+<section id="page-activity" class="page"><h2>Журнал</h2><div id="activityList" class="panel empty">Событий пока нет.</div></section>
+<section id="page-settings" class="page"><h2>Настройки профиля</h2><div class="panel"><form id="settingsForm"><label>Имя профиля<input id="profileName" maxlength="50" required></label><label>Раса<select id="race"><option>Автоопределение</option><option>Волшебники</option><option>Люди</option><option>Эльфы</option><option>Тёмные эльфы</option><option>Нежить</option><option>Демоны</option><option>Элементали</option><option>Химеры</option></select></label><label>Основной фарм-город<input id="farmCity" maxlength="100"></label><button class="primary">Сохранить настройки</button></form><div class="divider"></div><div class="toolbar"><div><h3>Перенос настроек</h3><p class="muted">Экспорт и импорт JSON для переноса между браузерами.</p></div><div class="actions"><button id="export" class="secondary">Экспорт JSON</button><button id="import" class="secondary">Импорт JSON</button><input id="importFile" type="file" accept="application/json" class="hidden"></div></div></div></section>
+</main></div>
+<div class="modalback" id="modal"><div class="modal"><div class="modalhead"><h2 id="modalTitle">Настройка</h2><button class="secondary" id="closeModal">Закрыть</button></div><form id="editor" class="formgrid"></form><div id="modalError" class="notice"></div></div></div>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>
